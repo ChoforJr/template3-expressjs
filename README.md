@@ -11,6 +11,6 @@ what-ever you need
 
 # Run the command below in your terminal to genrate a key for secret key
 
-node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+node -e "console.log(require('crypto').randomBytes(64).toString('hex'))"
 
 Copy the output and assign it to a secret key of your choice in your .env file

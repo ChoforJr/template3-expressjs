@@ -1,8 +1,6 @@
-import prisma from "./config/prisma.js";
 import express from "express";
 import indexRouter from "./routes/indexRouter.js";
 import path from "node:path";
-import passport from "passport";
 import dotenv from "dotenv";
 import "./config/passport.js";
 import cors from "cors";
@@ -43,11 +41,6 @@ console.log("Allowed URL 1:", process.env.ALLOWED_URL1);
 console.log("Allowed URL 2:", process.env.ALLOWED_URL2);
 console.log("Current CORS Options:", corsOptions.origin);
 console.log("------------------");
-
-app.use((req, res, next) => {
-  res.locals.currentUser = req.user;
-  next();
-});
 
 app.use("/", indexRouter);
 

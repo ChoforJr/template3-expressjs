@@ -1,5 +1,6 @@
 import { Router } from "express";
 import passport from "passport";
+import { authLogin } from "../config/passport.js";
 
 import { addNewUser } from "../controllers/postToDB.js";
 import {
@@ -20,29 +21,29 @@ indexRouter.get("/testCors", (req, res) => {
 });
 
 indexRouter.post(
-  "/sign-up",
+  "/signup",
   validateSignUpRules,
   checkSignUpValidationResult,
   addNewUser
 );
 
 indexRouter.post(
-  "/log-in",
+  "/login",
   validateLogInRules,
   checkLoginValidationResult,
-  passport.authenticate("local", {
-    successRedirect: "/",
-    failureRedirect: "/log-in",
-  })
+  authLogin
 );
 
-indexRouter.get("/log-out", (req, res, next) => {
-  req.logout((err) => {
-    if (err) {
-      return next(err);
-    }
-    res.redirect("/");
-  });
-});
+indexRouter.get(
+  "/profile",
+  passport.authenticate("jwt", { session: false }),
+  (req, res, next) => {
+    // If we are here, the JWT was valid
+    res.json({
+      message: "You made it to the secure route",
+      user: req.user, // This is the decoded token payload
+    });
+  }
+);
 
 export default indexRouter;
