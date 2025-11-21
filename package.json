@@ -25,10 +25,11 @@
     "url": "https://github.com/ChoforJr/template3-expressjs/issues"
   },
   "homepage": "https://github.com/ChoforJr/template3-expressjs#readme",
- "dependencies": {
+  "dependencies": {
     "@prisma/client": "^6.19.0",
     "bcryptjs": "^3.0.2",
     "cloudinary": "^2.8.0",
+    "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "ejs": "^3.1.10",
     "express": "^5.1.0",

@@ -13,6 +13,12 @@ import {
 
 const indexRouter = Router();
 
+indexRouter.get("/testCors", (req, res) => {
+  res.json({
+    message: "it worked",
+  });
+});
+
 indexRouter.post(
   "/sign-up",
   validateSignUpRules,
