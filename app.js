@@ -1,5 +1,5 @@
 import express from "express";
-import indexRouter from "./routes/indexRouter.js";
+import authRouter from "./routes/authRouter.js";
 import path from "node:path";
 import dotenv from "dotenv";
 import "./config/passport.js";
@@ -42,7 +42,7 @@ console.log("Allowed URL 2:", process.env.ALLOWED_URL2);
 console.log("Current CORS Options:", corsOptions.origin);
 console.log("------------------");
 
-app.use("/", indexRouter);
+app.use("/", authRouter);
 
 app.use((err, req, res, next) => {
   if (err.message === "Not allowed by CORS") {

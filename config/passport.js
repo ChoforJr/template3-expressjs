@@ -11,10 +11,7 @@ import {
 } from "passport-jwt";
 import jwt from "jsonwebtoken";
 
-import {
-  getUserInfoByUsername,
-  getUserInfoByID,
-} from "../prisma_queries/find.js";
+import { getUserInfoByUsername } from "../prisma_queries/find.js";
 
 async function verifyCallback(username, password, done) {
   try {
